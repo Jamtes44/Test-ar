@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+  <meta charset="utf-8">
 
-<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
-<title>Teachers AR</title>
+  <title>Teachers AR</title>
 </head>
 
 <body style="margin:0; overflow:hidden;">
 
 <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
 
-<a-assets>
+  <a-assets>
     <a-asset-item id="fer" src="objects/low_poly_f1.glb"></a-asset-item>
+  </a-assets>
 
-</a-assets>
+  <a-marker type="pattern" url="objects/pattern-fer.patt">
+  <!-- Modelo 3D -->
+  <a-entity gltf-model="#fer"
+            scale="0.5 0.5 0.5"
+            position="0 0.5 0"
+            rotation="0 0 0.5">
+  </a-entity>
 
-<a-marker type="pattern" url="objects/pattern-fer.patt">
-    <a-entity gltf-model="#fer" scale="0.5 0.5 0.5" position="0 0.5 0"></a-entity>
+  <!-- Fondo negro semitransparente detrás del texto -->
+  <a-plane
+    position="1 0.8 0"
+    rotation="0 0 0"
+    scale="0.5 0.5 0.5"
+    width="2.6"
+    height="1.6"
+    material="color: black; opacity: 0.5; transparent: true;">
+  </a-plane>
+
+  <!-- Texto a la derecha del modelo -->
+  <a-entity
+
+    text="value: El Campeonato Mundial de Formula 1 de la FIA, mas conocido como Formula 1, F1 o Formula Uno, es la principal competicion de automovilismo internacional y el campeonato de deportes de motor mas popular y prestigioso del mundo. La entidad que la dirige es la Federacion Internacional del Automovil.
+;
+          color: yellow;
+          width: 2.4;
+          align: left;
+          wrapCount: 35;
+          zOffset: 0.01;"
+    position="1 0.8 0"
+    scale="0.5 0.5 0.5"
+    rotation="0 0 0">
+  </a-entity>
 </a-marker>
 
 
-<a-entity camera></a-entity>
+  <a-entity camera></a-entity>
 
 </a-scene>
 
